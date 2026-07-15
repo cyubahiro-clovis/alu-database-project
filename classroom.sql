@@ -53,3 +53,30 @@ JOIN Classroom cl
     ON c.classroom_id = cl.classroom_id;
 
 
+SELECT CONCAT(
+    s.name,
+    ' participates in ',
+    a.activity_name,
+    ', advised by ',
+    f.name,
+    '.'
+) AS student_activity_information
+FROM Students s
+JOIN Student_Activities sa
+    ON s.student_id = sa.student_id
+JOIN Extra_Curricular_Activities a
+    ON sa.activity_id = a.activity_id
+JOIN Faculty f
+    ON a.faculty_advisor_id = f.faculty_id;
+
+SELECT CONCAT(
+    s.name,
+    ' is assigned to classroom ',
+    cl.room_number,
+    ' in ',
+    cl.building,
+    '.'
+) AS student_classroom_information
+FROM Students s
+JOIN Classroom cl
+    ON s.classroom_id = cl.classroom_id;
