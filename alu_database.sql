@@ -1,10 +1,10 @@
 -- ============================================================
 -- ALU DATABASE - GROUP PROJECT
--- Team: Clovis (leader), Nziza, Vladimir, Achol, Nissi, Christian
+-- Team: Clovis, Nziza, Vladimir, Achol, Nissi, Christian
 -- ============================================================
 
 -- ------------------------------------------------------------
--- SECTION 0: DATABASE  |  Committed by: Clovis (group leader)
+-- SECTION 0: DATABASE  |  Committed by: Clovis
 -- ------------------------------------------------------------
 -- DROP makes the script safe to re-run while testing.
 DROP DATABASE IF EXISTS alu_db;
