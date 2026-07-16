@@ -21,6 +21,16 @@ Member A: Nziza - Students (add your CREATE TABLE here)
 
 Member D: Nissi - Courses (add your CREATE TABLE here)
 
+CREATE TABLE Courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL,
+    credits INT,
+    faculty_id INT,
+    classroom_id INT,
+    FOREIGN KEY (faculty_id) REFERENCES Faculty(faculty_id),
+    FOREIGN KEY (classroom_id) REFERENCES Classroom(classroom_id)
+);
+
 Member E: Christian - Extra_Curricular_Activities + junction tables (add here)
 
 SECTION 2: INSERT SAMPLE DATA (same order as the tables)
@@ -33,6 +43,13 @@ Member C: Achol - Faculty data (add here)
 Member A: Nziza - Students data (add here)
 
 Member D: Nissi - Courses data (add here)
+
+INSERT INTO Courses (course_id, course_name, credits, faculty_id, classroom_id) VALUES
+(1, 'Python and Databases', 4, 1, 2),
+(2, 'Linux and Shell scripting', 3, 2, 4),
+(3, 'Self Leadership and Team Dynamics', 3, 3, 1),
+(4, 'Machine Learning', 4, 1, 5),
+(5, 'Web development', 2, 2, 3):
 
 Member E: Christian - Activities + junction data (add here)
 
