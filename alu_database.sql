@@ -19,7 +19,17 @@ Member C: Achol - Faculty (add your CREATE TABLE here)
 
 Member A: Nziza - Students (add your CREATE TABLE here)
 
-Member D: Nissi - Courses (add your CREATE TABLE here)
+-- Member D: Nissi - Courses (add your CREATE TABLE here)
+
+CREATE TABLE Courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL,
+    credits INT,
+    faculty_id INT,
+    classroom_id INT,
+    FOREIGN KEY (faculty_id) REFERENCES Faculty(faculty_id),
+    FOREIGN KEY (classroom_id) REFERENCES Classroom(classroom_id)
+);
 
 Member E: Christian - Extra_Curricular_Activities + junction tables (add here)
 
@@ -32,7 +42,14 @@ Member C: Achol - Faculty data (add here)
 
 Member A: Nziza - Students data (add here)
 
-Member D: Nissi - Courses data (add here)
+-- Member D: Nissi - Courses data (add here)
+
+INSERT INTO Courses (course_id, course_name, credits, faculty_id, classroom_id) VALUES
+(1, 'Python and Databases', 4, 1, 2),
+(2, 'Linux and Shell scripting', 3, 2, 4),
+(3, 'Self Leadership and Team Dynamics', 3, 3, 1),
+(4, 'Machine Learning', 4, 1, 5),
+(5, 'Web development', 2, 2, 3);
 
 Member E: Christian - Activities + junction data (add here)
 
@@ -45,7 +62,17 @@ Member B: Vladimir (add here)
 
 Member C: Achol (add here)
 
-Member D: Nissi (add here)
+-- Member D: Nissi (add here)
+
+-- UPDATE I want to increase credits for Machine Learning
+UPDATE Courses SET credits = 5 WHERE course_id = 4;
+
+-- Deleting a course COMMENT
+DELETE FROM Courses WHERE course_id = 5;
+
+-- what courses have more than 3 credits
+SELECT course_name, credits FROM Courses WHERE credits >= 3;
+
 
 Member E: Christian (add here)
 
