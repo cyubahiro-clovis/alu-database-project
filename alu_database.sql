@@ -52,9 +52,18 @@ CREATE TABLE Student_Courses (
     FOREIGN KEY (student_id)
     REFERENCES Students(student_id),
 
+
+    PRIMARY KEY (student_id, course_id),
+
+
+    FOREIGN KEY (student_id)
+    REFERENCES Students(student_id),
+
+
     FOREIGN KEY (course_id)
     REFERENCES Courses(course_id)
 ) ENGINE=InnoDB;
+
 
 CREATE TABLE Student_Activities (
     student_id INT,
@@ -64,6 +73,14 @@ CREATE TABLE Student_Activities (
 
     FOREIGN KEY (student_id)
     REFERENCES Students(student_id),
+
+
+    PRIMARY KEY (student_id, activity_id),
+
+
+    FOREIGN KEY (student_id)
+    REFERENCES Students(student_id),
+
 
     FOREIGN KEY (activity_id)
     REFERENCES Extra_Curricular_Activities(activity_id)
@@ -90,33 +107,7 @@ INSERT INTO Courses (course_id, course_name, credits, faculty_id, classroom_id) 
 
 --Member E: Christian - Activities + junction data (add here)
 
-INSERT INTO Extra_Curricular_Activities
-(activity_name, category, faculty_advisor_id)
-VALUES
-('Football Club', 'Sports', 1),
-('Coding Club', 'Technology', 2),
-('Debate Club', 'Academic', 3),
-('Music Club', 'Arts', 1),
-('Basketball Club', 'Sports', 2);
 
-INSERT INTO Student_Courses
-(student_id, course_id)
-VALUES
-(1,1),
-(1,2),
-(2,2),
-(3,3),
-(4,1),
-(5,4);
-
-INSERT INTO Student_Activities
-(student_id, activity_id)
-VALUES
-(1,1),
-(2,2),
-(3,3),
-(4,4),
-(5,5);
 
 SECTION 3: INDIVIDUAL QUERIES (UPDATE, DELETE, SELECT)
 
