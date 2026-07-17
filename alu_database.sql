@@ -31,7 +31,43 @@ CREATE TABLE Courses (
     FOREIGN KEY (classroom_id) REFERENCES Classroom(classroom_id)
 );
 
-Member E: Christian - Extra_Curricular_Activities + junction tables (add here)
+--Member E: Christian - Extra_Curricular_Activities + junction tables (add here)
+
+CREATE TABLE Extra_Curricular_Activities (
+    activity_id INT AUTO_INCREMENT PRIMARY KEY,
+    activity_name VARCHAR(100) NOT NULL,
+    category VARCHAR(50),
+    faculty_advisor_id INT,
+
+    FOREIGN KEY (faculty_advisor_id)
+    REFERENCES Faculty(faculty_id)
+) ENGINE=InnoDB;
+
+CREATE TABLE Student_Courses (
+    student_id INT,
+    course_id INT,
+
+    PRIMARY KEY (student_id, course_id),
+
+    FOREIGN KEY (student_id)
+    REFERENCES Students(student_id),
+
+    FOREIGN KEY (course_id)
+    REFERENCES Courses(course_id)
+) ENGINE=InnoDB;
+
+CREATE TABLE Student_Activities (
+    student_id INT,
+    activity_id INT,
+
+    PRIMARY KEY (student_id, activity_id),
+
+    FOREIGN KEY (student_id)
+    REFERENCES Students(student_id),
+
+    FOREIGN KEY (activity_id)
+    REFERENCES Extra_Curricular_Activities(activity_id)
+) ENGINE=InnoDB;
 
 SECTION 2: INSERT SAMPLE DATA (same order as the tables)
 
@@ -51,8 +87,35 @@ INSERT INTO Courses (course_id, course_name, credits, faculty_id, classroom_id) 
 (4, 'Machine Learning', 4, 1, 5),
 (5, 'Web development', 2, 2, 3);
 
-Member E: Christian - Activities + junction data (add here)
+--Member E: Christian - Activities + junction data (add here)
 
+INSERT INTO Extra_Curricular_Activities
+(activity_name, category, faculty_advisor_id)
+VALUES
+('Football Club', 'Sports', 1),
+('Coding Club', 'Technology', 2),
+('Debate Club', 'Academic', 3),
+('Music Club', 'Arts', 1),
+('Basketball Club', 'Sports', 2);
+
+INSERT INTO Student_Courses
+(student_id, course_id)
+VALUES
+(1,1),
+(1,2),
+(2,2),
+(3,3),
+(4,1),
+(5,4);
+
+INSERT INTO Student_Activities
+(student_id, activity_id)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5);
 
 SECTION 3: INDIVIDUAL QUERIES (UPDATE, DELETE, SELECT)
 
@@ -74,7 +137,21 @@ DELETE FROM Courses WHERE course_id = 5;
 SELECT course_name, credits FROM Courses WHERE credits >= 3;
 
 
-Member E: Christian (add here)
+--Member E: Christian (add here)
+
+--update the category of Coding Club to STEM
+UPDATE Extra_Curricular_Activities
+SET category='STEM'
+WHERE activity_name='Coding Club';
+
+-- delete the Basketball Club activity
+DELETE FROM Extra_Curricular_Activities
+WHERE activity_name='Basketball Club';
+
+-- select all activities in the Sports category
+SELECT *
+FROM Extra_Curricular_Activities
+WHERE category='Sports';
 
 SECTION 4: GROUP TASKS (joins, aggregate, normalization)
 Committed by: Clovis after the group session
