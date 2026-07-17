@@ -107,6 +107,35 @@ INSERT INTO Courses (course_id, course_name, credits, faculty_id, classroom_id) 
 
 --Member E: Christian - Activities + junction data (add here)
 
+INSERT INTO Extra_Curricular_Activities
+(activity_name, category, faculty_advisor_id)
+VALUES
+('Football Club', 'Sports', 1),
+('Coding Club', 'Technology', 2),
+('Debate Club', 'Academic', 3),
+('Music Club', 'Arts', 1),
+('Basketball Club', 'Sports', 2);
+
+
+INSERT INTO Student_Courses
+(student_id, course_id)
+VALUES
+(1,1),
+(1,2),
+(2,2),
+(3,3),
+(4,1),
+(5,4);
+
+
+INSERT INTO Student_Activities
+(student_id, activity_id)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5);
 
 
 SECTION 3: INDIVIDUAL QUERIES (UPDATE, DELETE, SELECT)
@@ -131,19 +160,7 @@ SELECT course_name, credits FROM Courses WHERE credits >= 3;
 
 --Member E: Christian (add here)
 
---update the category of Coding Club to STEM
-UPDATE Extra_Curricular_Activities
-SET category='STEM'
-WHERE activity_name='Coding Club';
 
--- delete the Basketball Club activity
-DELETE FROM Extra_Curricular_Activities
-WHERE activity_name='Basketball Club';
-
--- select all activities in the Sports category
-SELECT *
-FROM Extra_Curricular_Activities
-WHERE category='Sports';
 
 SECTION 4: GROUP TASKS (joins, aggregate, normalization)
 Committed by: Clovis after the group session
