@@ -7,7 +7,7 @@ SECTION 0: DATABASE
 DROP makes the script safe to re-run while testing.
 DROP DATABASE IF EXISTS alu_db;
 CREATE DATABASE alu_db;
-USE alu_db;
+USE alu_db
 
 
 SECTION 1: CREATE TABLES (dependency order: parents first)
@@ -68,6 +68,7 @@ CREATE TABLE Student_Activities (
     FOREIGN KEY (activity_id)
     REFERENCES Extra_Curricular_Activities(activity_id)
 ) ENGINE=InnoDB;
+
 
 SECTION 2: INSERT SAMPLE DATA (same order as the tables)
 
