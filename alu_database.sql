@@ -15,7 +15,14 @@ SECTION 1: CREATE TABLES (dependency order: parents first)
 
 Member B: Vladimir - Classroom (add your CREATE TABLE here)
 
-Member C: Achol - Faculty (add your CREATE TABLE here)
+-- Member C: Achol - Faculty
+CREATE TABLE Faculty (
+    faculty_id    INT AUTO_INCREMENT PRIMARY KEY,
+    name          VARCHAR(100) NOT NULL,
+    email         VARCHAR(100) NOT NULL UNIQUE,
+    department    VARCHAR(100),
+    hire_date     DATE NOT NULL
+) ENGINE=InnoDB;
 
 Member A: Nziza - Students (add your CREATE TABLE here)
 
@@ -92,7 +99,13 @@ SECTION 2: INSERT SAMPLE DATA (same order as the tables)
 
 Member B: Vladimir - Classroom data (add here)
 
-Member C: Achol - Faculty data (add here)
+-- Member C: Achol - Faculty data
+INSERT INTO Faculty (name, email, department, hire_date) VALUES
+('Eric Habimana',      'eric.habimana@alu.edu',      'Computer Science', '2020-01-15'),
+('Aline Mukamana',     'aline.mukamana@alu.edu',     'Mathematics',      '2019-08-22'),
+('Patrick Ndayisenga', 'patrick.ndayisenga@alu.edu', 'Health Sciences',  '2021-03-10'),
+('Okello Denis',       'okello.denis@alu.edu',       'Business',         '2018-05-30'),
+('Ajak Deng',          'ajak.deng@alu.edu',          'Engineering',      '2022-02-14');
 
 Member A: Nziza - Students data (add here)
 
@@ -144,7 +157,17 @@ Member A: Nziza (add here)
 
 Member B: Vladimir (add here)
 
-Member C: Achol (add here)
+-- Member C: Achol
+UPDATE Faculty
+SET department = 'Data Science'
+WHERE email = 'eric.habimana@alu.edu';
+
+DELETE FROM Faculty
+WHERE email = 'okello.denis@alu.edu';
+
+SELECT name, department, hire_date
+FROM Faculty
+WHERE department = 'Computer Science';
 
 -- Member D: Nissi (add here)
 
