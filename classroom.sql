@@ -5,7 +5,7 @@
 
 CREATE TABLE Classroom (
     classroom_id INT PRIMARY KEY,
-    room_number VARCHAR(10),
+    room_number VARCHAR(9),
     building VARCHAR(50),
     capacity INT
 );

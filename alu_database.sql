@@ -202,3 +202,38 @@ WHERE category='Sports';
 
 SECTION 4: GROUP TASKS (joins, aggregate, normalization)
 Committed by: Clovis after the group session
+
+-- ============================================
+-- MEMBER: Vladimir Ndayisaba
+-- TABLE: Classroom
+-- ============================================
+
+CREATE TABLE Classroom (
+    classroom_id INT PRIMARY KEY,
+    room_number VARCHAR(9),
+    building VARCHAR(50),
+    capacity INT
+);
+
+INSERT INTO Classroom (classroom_id, room_number, building, capacity)
+VALUES
+(1, 'A101', 'Main Building', 40),
+(2, 'A102', 'Main Building', 35),
+(3, 'B201', 'Innovation Hub', 30),
+(4, 'B202', 'Innovation Hub', 25),
+(5, 'C301', 'Learning Center', 50);
+
+UPDATE Classroom
+SET capacity = 45
+WHERE classroom_id = 1;
+
+INSERT INTO Classroom (classroom_id, room_number, building, capacity)
+VALUES (6, 'D401', 'Temporary Building', 20);
+
+DELETE FROM Classroom
+WHERE classroom_id = 6;
+
+SELECT *
+FROM Classroom
+WHERE capacity >= 30;
+
