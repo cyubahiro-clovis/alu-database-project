@@ -160,6 +160,21 @@ SELECT course_name, credits FROM Courses WHERE credits >= 3;
 
 --Member E: Christian (add here)
 
+--update the category of Coding Club to STEM
+UPDATE Extra_Curricular_Activities
+SET category='STEM'
+WHERE activity_name='Coding Club';
+
+
+-- delete the Basketball Club activity
+DELETE FROM Extra_Curricular_Activities
+WHERE activity_name='Basketball Club';
+
+
+-- select all activities in the Sports category
+SELECT *
+FROM Extra_Curricular_Activities
+WHERE category='Sports';
 
 
 SECTION 4: GROUP TASKS (joins, aggregate, normalization)
